@@ -81,12 +81,12 @@
   <div class="container">
     <div class="row align-items-center mb-5">
     </div>
-    {% for event in events %}
+    {% comment %}{% for event in events %}{% endcomment %}
         <div class="row align-items-center mb-5">
-            {% if event.id% 2==0 %}
+            {{% comment %}% if  %}{% endcomment %}
                 <div class="col-md-7 order-md-2 mb-5 mb-md-0">
-                {% else %}
-            {% endif %}
+                {% comment %}{% else %}{% endcomment %}
+            {% comment %}{% endif %}{% endcomment %}
 
             <img src="images/AhramCouverture1.jpg" alt="" class="img-fluid">
           </div>
@@ -115,7 +115,7 @@
           </div>
 
         </div> <!-- .row -->
-    {% endfor %}
+    {% comment %}{% endfor %}{% endcomment %}
 
 
     <div class="row align-items-center mb-5">
