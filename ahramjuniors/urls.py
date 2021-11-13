@@ -22,6 +22,7 @@ from home.views import *
 urlpatterns = [
 path('', include('home.urls')),
 path('event/', include('event.urls')),
+path('article/', include('article.urls')),
 path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:
