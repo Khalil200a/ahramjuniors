@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class News(models.Model):
     titre = models.CharField(max_length=200)
     instagram_link = models.CharField(max_length=400, blank=True)

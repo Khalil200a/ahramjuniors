@@ -39,10 +39,10 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="{% url 'event' %}" class="nav-link">Events</a></li>
           <li class="nav-item"><a href="{% url 'article' %}" class="nav-link">Articles</a></li>
-          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="{% url 'gallery' %}" class="nav-link">Gallery</a></li>
           <li class="nav-item"><a href="donate.html" class="nav-link">Donate</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="mailto:ahramjuniors@gmail.com" class="nav-link">Contact</a></li>
@@ -230,53 +230,19 @@
       <div class="col-md-6 col-lg-6">
         <h3 class="heading-section" style="font-size: 26px">Recent Articles</h3>
 
-        <div class="block-21 d-flex mb-4">
-          <figure class="mr-3">
-            <img src="{% static 'images/Article4.png' %}" alt="" class="img-fluid">
-          </figure>
-          <div class="text">
-            <h3 class="heading" style="font-size: 20px"><a href="Articles/Article4_RheaSURAJ.pdf">Biotechnology</a></h3>
-            <div class="meta">
-              <div><a href="Articles/Article4_RheaSURAJ.pdf" style="font-size: 16px"><span class="icon-calendar"></span> July, 2021</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="block-21 d-flex mb-4">
-          <figure class="mr-3">
-            <img src="{% static 'images/Article3.png' %}" alt="" class="img-fluid">
-          </figure>
-          <div class="text">
-            <h3 class="heading" style="font-size: 20px"><a href="Articles/Article3_kenzaFENJIRO.pdf">The Current Situation of Children in Morocco</a></h3>
-            <div class="meta">
-              <div><a href="Articles/Article3_kenzaFENJIRO.pdf" style="font-size: 16px"><span class="icon-calendar"></span> July, 2021</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="block-21 d-flex mb-4">
-          <figure class="mr-3">
-            <img src="{% static 'images/Article2.png'%}" alt="" class="img-fluid">
-          </figure>
-          <div class="text">
-            <h3 class="heading" style="font-size: 20px"><a href="Articles/Article2_SaminAFNAN.pdf">Men and the Wind of Change</a></h3>
-            <div class="meta">
-              <div><a href="Articles/Article2_SaminAFNAN.pdf" style="font-size: 16px"><span class="icon-calendar"></span> July, 2021</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="block-21 d-flex mb-4">
-          <figure class="mr-3">
-            <img src="{% static 'images/Article1.png' %}" alt="" class="img-fluid">
-          </figure>
-          <div class="text">
-            <h3 class="heading" style="font-size: 20px"><a href="Articles/Article1_AllenLIN.pdf">Why do we procrastinate?</a></h3>
-            <div class="meta">
-              <div><a href="Articles/Article1_AllenLIN.pdf" style="font-size: 16px"><span class="icon-calendar"></span> July, 2021</a></div>
-            </div>
-          </div>
-        </div>
+        {% for article in recent %}
+                <div class="block-21 d-flex mb-4">
+                    <figure class="mr-3">
+                        <img src="{{ article.image.url }}" alt="" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                        <h3 class="heading" style="font-size: 20px"><a href="{{ article.document.url }}">{{ article.titre }}</a></h3>
+                        <div class="meta">
+                            <div><a href="{{ article.document.url }}" style="font-size: 16px"><span class="icon-calendar"></span>{{ article.date }}</a></div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
 
       </div>
       <div class="col-md-6 col-lg-6">
