@@ -15,6 +15,8 @@ import os
 import django_heroku
 import whitenoise
 import dj_database_url
+import cloudinary_storage
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -141,7 +145,10 @@ MEDIA_URL = '/media/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'docibpdhx',
+    'API_KEY': '833557898415243',
+    'API_SECRET': 'y0BNcKJILBviGPLXSs4xXxnAm_U',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
