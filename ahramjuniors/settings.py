@@ -143,8 +143,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'docibpdhx',
     'API_KEY': '833557898415243',
