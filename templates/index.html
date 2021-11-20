@@ -5,6 +5,7 @@
   <title>Ahram Juniors</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="4zDiBCjPW3JzsAHGihcVcAtWOyFqv9VGPF_pbRJkYUo" />
 
   <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700" rel="stylesheet">
   <link href="{% static 'css/open-iconic-bootstrap.min.css' %}" rel="stylesheet" >
@@ -201,7 +202,7 @@
               <h3 class="heading">Join us!</h3>
               <br>
               <p>Member and Volunteer applications are open! Join us now!</p>
-              <p><a href="join.html" class="link-underline">Join</a></p>
+              <p><a href="{% url 'join' %}" class="link-underline">Join</a></p>
             </div>
           </div>
         </div>
@@ -213,7 +214,7 @@
               <h3 class="heading">Make Donations</h3>
               <br>
               <p>Whether that’s money, books, laptops, toys, or clothes. Anything helps!</p>
-              <p><a href="donate.html" class="link-underline">Donate</a></p>
+              <p><a href="{% url 'donate' %}" class="link-underline">Donate</a></p>
             </div>
           </div>
         </div>
