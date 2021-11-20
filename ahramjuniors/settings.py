@@ -11,16 +11,16 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import whitenoise
 import os
 import django_heroku
-import whitenoise
 import dj_database_url
 import cloudinary_storage
 import cloudinary
+import boto3
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -31,9 +31,7 @@ SECRET_KEY = 'django-insecure-0uj*tmh1mb_3b^!g5=90n7@wvek8t6fnf5+0#gd^=ev70^9e93
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-
 ALLOWED_HOSTS = ['ahramjuniors.herokuapp.com']
-
 
 # Application definition
 
@@ -63,7 +61,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'ahramjuniors.urls'
 
 TEMPLATES = [
@@ -85,7 +82,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ahramjuniors.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -95,7 +91,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -115,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -128,7 +122,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -143,10 +136,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'docibpdhx',
-    'API_KEY': '833557898415243',
-    'API_SECRET': 'y0BNcKJILBviGPLXSs4xXxnAm_U',
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
