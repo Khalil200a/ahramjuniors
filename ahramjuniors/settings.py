@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'article.apps.ArticleConfig',
     'gallery.apps.GalleryConfig',
     'django.contrib.admin',
+    'storages',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -138,4 +139,3 @@ MEDIA_URL = '/media/'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
