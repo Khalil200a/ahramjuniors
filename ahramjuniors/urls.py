@@ -26,6 +26,6 @@ path('article/', include('article.urls')),
 path('gallery/', include('gallery.urls')),
 path('', include('join_donate.urls')),
 path('admin/', admin.site.urls),
+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
